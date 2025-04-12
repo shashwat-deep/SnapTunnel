@@ -33,3 +33,71 @@
   min-height: 400px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.file-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.file-section h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.file-section p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.attach-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.attach-btn:hover {
+  background-color: #1557b0;
+}
+
+.attach-btn .material-symbols-outlined {
+  font-size: 1.2rem;
+}
+
+.selected-file {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #e8f0fe;
+  border-radius: 4px;
+  border: 1px solid #d2e3fc;
+}
+
+.selected-file p {
+  margin: 0;
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.file-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f1f3f4;
+  border-radius: 4px;
+  border: 1px solid #dadce0;
+}
+
+.file-status p {
+  margin: 0;
+  color: #5f6368;
+}
