@@ -1,17 +1,48 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './main.css';
 
 const Main: React.FC = () => {
-  const [code, setCode] = useState(''); // State for input value
+  const [code, setCode] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCode(e.target.value);
   };
 
-  const handleJoinClick = () => {
-    // Handle join action (e.g., validate code and redirect)
-    if (code) {
-      alert(`Joining meeting with code: ${code}`);
+  const handleCreateRoom = async () => {
+    try {
+      setIsCreating(true);
+      const response = await fetch('http://localhost:3000/api/rooms', {
+        method: 'POST',
+      });
+      const data = await response.json();
+      navigate(`/room/${data.roomId}`);
+    } catch (error) {
+      console.error('Error creating room:', error);
+      alert('Failed to create room. Please try again.');
+    } finally {
+      setIsCreating(false);
+    }
+  };
+
+  const handleJoinClick = async () => {
+    if (!code) return;
+    
+    try {
+      const response = await fetch(`http://localhost:3000/api/rooms/${code}/join`, {
+        method: 'POST',
+      });
+      
+      if (response.ok) {
+        navigate(`/room/${code}`);
+      } else {
+        alert('Invalid room code. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error joining room:', error);
+      alert('Failed to join room. Please try again.');
     }
   };
 
@@ -21,8 +52,13 @@ const Main: React.FC = () => {
         <h1>Lorem ipsum dolor sit amet.<br /> Lorem, ipsum dolor.</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, esse?</p>
         <div className="button-group">
-          <button className="new-meeting-btn">
-            <span className="material-symbols-outlined">add</span> Create Room
+          <button 
+            className="new-meeting-btn"
+            onClick={handleCreateRoom}
+            disabled={isCreating}
+          >
+            <span className="material-symbols-outlined">add</span>
+            {isCreating ? 'Creating...' : 'Create Room'}
           </button>
           <div className="input-join">
             <input

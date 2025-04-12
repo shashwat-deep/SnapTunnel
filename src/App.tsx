@@ -12,11 +12,8 @@ const App: React.FC = () => {
       <div className="app-container">
         <NavBar />
         <Routes>
-
           <Route path="/" element={<Main />} />
-
-          <Route path="/room" element={<Room />} />
-          
+          <Route path="/room/:roomId" element={<Room />} />
         </Routes>
         <Footer />
       </div>
