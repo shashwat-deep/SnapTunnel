@@ -1,7 +1,3 @@
-Below is a comprehensive **README.md** file for your SnapTunnel project. It provides clear instructions for other users to set up and run the application, covering both the client and server components, and includes details about the project structure, dependencies, and how to use the single `npm run start` command you wanted. The README assumes your project is structured with the client in `D:\SnapTunnel` and the server in `D:\SnapTunnel\server`, using TypeScript, Express, Socket.IO, and React with Vite.
-
----
-
 # SnapTunnel
 
 SnapTunnel is a real-time file-sharing application that allows users to create and join rooms to share files securely. The application uses WebRTC (planned for file transfers), Socket.IO for real-time communication, Express for the backend, and React with Vite for the frontend. Users can create a room, share its unique code, and allow others to join, with the room creator able to select files to share with participants.
