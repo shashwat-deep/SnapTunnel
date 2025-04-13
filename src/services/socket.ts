@@ -5,6 +5,7 @@ let socket: Socket | null = null;
 export const initializeSocket = (roomId: string) => {
   if (!socket) {
     socket = io('http://localhost:3000');
+    socket.emit('join-room', roomId);
   }
   return socket;
 };
@@ -14,4 +15,4 @@ export const disconnectSocket = () => {
     socket.disconnect();
     socket = null;
   }
-}; 
+};
