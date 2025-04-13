@@ -1,72 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&family=Material+Icons&display=block');
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 200px;
-    padding-block: 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-img {
-    height: 2.5rem;
-  }
-  
-  .logo-text {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #6B46C1; /* Purple from the design */
-    margin-left: 0.5rem;
-  }
-  
-  .navbar-menu {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .navbar-menu li a {
-    text-decoration: none;
-    color: #666666;
-    font-size: 1rem;
-  }
-  
-  .navbar-menu li a:hover {
-    color: #6B46C1;
-  }
-  
-  .navbar-link {
-  display: flex;
+*{
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+a{
   text-decoration: none;
-  color: #666666;
-  font-size: 1rem;
+}
+
+.navbar_pc {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-inline: 5rem;
+  padding-block: 2rem ;
   align-items: center;
-  cursor: pointer;
-  }
-  
-  .navbar-link:hover {
-  color: #6B46C1;
-  } 
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .navbar-menu {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
+  justify-content: space-between;
+  background: transparent;
+  z-index: 10;
+}
+
+/* .navbar_menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+} */
+
+.navbar_link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+.navbar_mobile{
+  display: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+@media (max-width: 768px) {
 
   .material-symbols-outlined {
     font-variation-settings:
@@ -75,3 +64,5 @@
     'GRAD' 0,
     'opsz' 24
   }
+
+}

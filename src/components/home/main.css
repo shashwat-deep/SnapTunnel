@@ -1,43 +1,61 @@
 /* Import Material Symbols for the icon */
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&family=Material+Icons&display=block');
+/* @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=block'); */
+
+.main_app_container{
+  display: flex;
+  flex-direction: column;
+}
+
+.main_navBar{
+  display: flex;
+  flex-direction: row;
+  padding-block: 1rem;
+  margin-inline: 25rem;
+  margin-block: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 3px solid #000;
+  border-radius: 50px;
+}
 
 .main-window{
-    display: flex;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .main-container {
-    flex: 1;
-    text-align: center;
-    padding: 50px 20px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.void_div{
-    flex: 1;
+  flex: 1;
+  text-align: left;
+  height: fit-content;
+  padding: 10rem 5rem;
+  font-family: 'Roboto', sans-serif;
+  min-width:fit-content;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #202124;
   margin-bottom: 10px;
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   color: #5f6368;
   margin-bottom: 30px;
 }
 
 .button-group {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 10px;
   align-items: center;
 }
 
 .new-meeting-btn {
-  background-color: #1a73e8;
+  background: #1a73e8;
   color: white;
   border: none;
   border-radius: 20px;
@@ -47,11 +65,14 @@ p {
   display: flex;
   align-items: center;
   gap: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .new-meeting-btn:hover {
-  background-color: #1557b0;
+  transform: scale(1.05);
 }
 
 .new-meeting-btn .material-symbols-outlined {
@@ -59,6 +80,53 @@ p {
   vertical-align: middle;
 }
 
+/* Gradient Border Animation for Create Room Button */
+.new-meeting-btn::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background:transparent;
+  border-radius: 35px;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+  z-index: -3;
+}
+
+.new-meeting-btn:hover::before {
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FF4500, #FFD700, #00FF00, #1E90FF, #FF1493);
+  animation: rotate 1.5s linear infinite; /* Animation triggers on hover */
+}
+
+.new-meeting-btn::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #1a73e8;
+  border-radius: 18px;
+  z-index: -2;
+  border: 2px solid #1a73e8;
+}
+
+.new-meeting-btn:hover::after {
+  border: 2px solid #fff;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Input and Join Button Styles */
 .input-join {
   display: flex;
   align-items: center;
@@ -88,6 +156,9 @@ input:focus {
   font-size: 1em;
   cursor: pointer;
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .join-btn.active {
@@ -100,28 +171,130 @@ input:focus {
   background-color: #1557b0;
   color: white;
   border-color: #1557b0;
+  transform: scale(1.05);
 }
 
 .join-btn:disabled {
   cursor: not-allowed;
+  border: none;
   opacity: 0.6;
 }
 
-/* Ensure Material Symbols are styled correctly */
+/* Gradient Border Animation for Join Button */
+.join-btn::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: transparent;
+  border-radius: 35px;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+  z-index: -3;
+}
+
+.join-btn:hover::before {
+  background: linear-gradient(45deg, #0d47a1, #1976d2, #42a5f5, #1a73e8);
+  animation: rotate 1.5s linear infinite;
+}
+
+.join-btn::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #fff; 
+  border-radius: 18px;
+  z-index: -2;
+  border: 2px solid #dadce0;
+}
+
+.join-btn.active::after {
+  background: #1a73e8; 
+  border: 2px solid #1a73e8;
+}
+
+.join-btn:hover::after {
+  border: 2px solid #fff;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.image_container{
+  flex: 1;
+}
+
 .material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    color: white;
+  }
+
+}
+
+/* Existing CSS remains unchanged... */
+
+/* Starfield Animation */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10; /* Ensures it stays behind all content */
+  overflow: hidden;
+  /* background: black; */
+  background: white;
+  pointer-events: none;
+  perspective: 1000px;
+}
+
+.star {
+  position: absolute;
+  /* background: white; */
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateZ(0);
+  animation: zoomStar 30s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes zoomStar {
+  0% {
+    transform: scale(0.2) translateZ(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5) translateZ(500px);
+    opacity: 0;
+  }
 }
