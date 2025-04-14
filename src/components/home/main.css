@@ -1,13 +1,13 @@
 /* Import Material Symbols for the icon */
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&family=Material+Icons&display=block');
-/* @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=block'); */
 
-.main_app_container{
+/* Existing styles (unchanged, included for context) */
+.main_app_container {
   display: flex;
   flex-direction: column;
 }
 
-.main_navBar{
+.main_navBar {
   display: flex;
   flex-direction: row;
   padding-block: 1rem;
@@ -19,11 +19,11 @@
   border-radius: 50px;
 }
 
-.nav_items:hover{
+.nav_items:hover {
   background-color: #202124;
 }
 
-.main-window{
+.main-window {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -35,7 +35,7 @@
   height: fit-content;
   padding: 10rem 5rem;
   font-family: 'Roboto', sans-serif;
-  min-width:fit-content;
+  min-width: fit-content;
 }
 
 h1 {
@@ -58,76 +58,6 @@ p {
   align-items: center;
 }
 
-.new-meeting-btn {
-  background: #1a73e8;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.new-meeting-btn:hover {
-  transform: scale(1.05);
-}
-
-.new-meeting-btn .material-symbols-outlined {
-  font-size: 1.2em;
-  vertical-align: middle;
-}
-
-/* Gradient Border Animation for Create Room Button */
-.new-meeting-btn::before {
-  content: '';
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
-  background:transparent;
-  border-radius: 35px;
-  opacity: 0.95;
-  transition: opacity 0.3s ease;
-  z-index: -3;
-}
-
-.new-meeting-btn:hover::before {
-  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FF4500, #FFD700, #00FF00, #1E90FF, #FF1493);
-  animation: rotate 1.5s linear infinite; /* Animation triggers on hover */
-}
-
-.new-meeting-btn::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  background: #1a73e8;
-  border-radius: 18px;
-  z-index: -2;
-  border: 2px solid #1a73e8;
-}
-
-.new-meeting-btn:hover::after {
-  border: 2px solid #fff;
-}
-
-/* Input and Join Button Styles */
-.input-join {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 input {
   padding: 10px;
   font-size: 1em;
@@ -141,17 +71,90 @@ input:focus {
   border-color: #1a73e8;
 }
 
+/* Define custom property for angle */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* New Meeting Button */
+.new-meeting-btn {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 11px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.new-meeting-btn:hover {
+  transform: scale(1.05);
+}
+
+.new-meeting-btn .material-symbols-outlined {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.new-meeting-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: calc(100% + 1px); /* Slightly larger than button for border */
+  height: calc(100% + 1px);
+  background: transparent;
+  border-radius: 22px;
+  z-index: -2;
+}
+
+.new-meeting-btn:hover::before {
+  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  animation: spin 3s linear infinite;
+}
+
+.new-meeting-btn::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #1a73e8; /* Matches original background */
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.input-join{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.input-join input{
+  border: 2px solid #1a73e8
+}
+
+/* Join Button */
 .join-btn {
   background-color: #fff;
   color: #5f6368;
   border: 1px solid #dadce0;
   border-radius: 20px;
   padding: 10px 20px;
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
   position: relative;
-  overflow: hidden;
   z-index: 1;
 }
 
@@ -162,45 +165,31 @@ input:focus {
 }
 
 .join-btn:hover:not(:disabled) {
-  background-color: #1557b0;
-  color: white;
-  border-color: #1557b0;
   transform: scale(1.05);
-}
-
-.join-btn:hover:disabled {
-  background: transparent;
-  border:none;
 }
 
 .join-btn:disabled {
   cursor: not-allowed;
-  border: none;
   opacity: 0.6;
+  border: 2px solid #dadce0;
 }
 
-/* Gradient Border Animation for Join Button */
 .join-btn::before {
   content: '';
   position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: calc(100% + 1px); /* Slightly larger for border */
+  height: calc(100% + 1px);
   background: transparent;
-  border-radius: 35px;
-  opacity: 0.95;
-  transition: opacity 0.3s ease;
-  z-index: -3;
+  border-radius: 22px;
+  z-index: -2;
 }
 
-.join-btn:hover::before {
-  background: linear-gradient(45deg, #0d47a1, #1976d2, #42a5f5, #1a73e8);
-  animation: rotate 1.5s linear infinite;
-}
-
-.join-btn:hover:disabled:before {
-  background: transparent;
+.join-btn:hover:not(:disabled)::before {
+  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  animation: spin 3s linear infinite;
 }
 
 .join-btn::after {
@@ -210,70 +199,46 @@ input:focus {
   left: 2px;
   right: 2px;
   bottom: 2px;
-  background: #fff; 
+  background: #fff; /* Matches default background */
   border-radius: 18px;
-  z-index: -2;
-  border: 2px solid #dadce0;
+  z-index: -1;
 }
 
 .join-btn.active::after {
-  background: #1a73e8; 
-  border: 2px solid #1a73e8;
+  background: #1a73e8; /* Matches active state background */
 }
 
-.join-btn:hover::after {
-  border: 2px solid white;
-}
-
-.join-btn:hover:disabled:after {
-  border: 2px solid #dadce0;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
+/* Animation keyframes */
+@keyframes spin {
+  from {
+    --angle: 0deg;
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    --angle: 360deg;
   }
 }
 
-.image_container{
+.image_container {
   flex: 1;
 }
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-  color: white;
-}
-
-@media (max-width: 768px) {
-
-  .material-symbols-outlined {
-    font-variation-settings:
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
-    color: white;
-  }
-
+  color: white;
 }
 
-/* Starfield Animation */
 .starfield {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -10; /* Ensures it stays behind all content */
+  z-index: -10;
   overflow: hidden;
-  /* background: black; */
   background: white;
   pointer-events: none;
   perspective: 1000px;
@@ -281,7 +246,6 @@ input:focus {
 
 .star {
   position: absolute;
-  /* background: white; */
   background: black;
   border-radius: 50%;
   opacity: 0;
@@ -301,5 +265,16 @@ input:focus {
   100% {
     transform: scale(2.5) translateZ(500px);
     opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+    color: white;
   }
 }
