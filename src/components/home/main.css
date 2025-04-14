@@ -117,15 +117,6 @@ p {
   border: 2px solid #fff;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* Input and Join Button Styles */
 .input-join {
   display: flex;
@@ -140,7 +131,6 @@ input {
   border-radius: 20px;
   outline: none;
   width: 200px;
-  transition: border-color 0.3s;
 }
 
 input:focus {
@@ -174,6 +164,11 @@ input:focus {
   transform: scale(1.05);
 }
 
+.join-btn:hover:disabled {
+  background: transparent;
+  border:none;
+}
+
 .join-btn:disabled {
   cursor: not-allowed;
   border: none;
@@ -200,6 +195,10 @@ input:focus {
   animation: rotate 1.5s linear infinite;
 }
 
+.join-btn:hover:disabled:before {
+  background: transparent;
+}
+
 .join-btn::after {
   content: '';
   position: absolute;
@@ -219,7 +218,11 @@ input:focus {
 }
 
 .join-btn:hover::after {
-  border: 2px solid #fff;
+  border: 2px solid white;
+}
+
+.join-btn:hover:disabled:after {
+  border: 2px solid #dadce0;
 }
 
 @keyframes rotate {
