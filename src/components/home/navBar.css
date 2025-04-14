@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&family=Material+Icons&display=block');
 
+/* Define colors */
+:root {
+  --black: #000;
+  --dark-gray: #202124;
+  --white: #fff;
+  /* Dark mode variables */
+  --dark-bg: #202124;
+  --dark-border: #4a4a4a;
+  --dark-hover: #3a3a3a;
+  --dark-text: #e0e0e0;
+}
+
 * {
   margin: 0;
   padding: 0;
-  color: black;
+  color: var(--black);
+}
+
+.dark-mode * {
+  color: var(--dark-text);
 }
 
 a {
@@ -26,10 +42,18 @@ a {
   transition: background-color 0.3s ease;
 }
 
+.dark-mode .navbar_pc {
+  background: var(--dark-bg);
+}
+
 .navbar_logo .navbar_link {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #202124;
+  color: var(--dark-gray);
+}
+
+.dark-mode .navbar_logo .navbar_link {
+  color: var(--dark-text);
 }
 
 .navbar_menu {
@@ -42,9 +66,13 @@ a {
   flex-grow: 1;
   list-style: none;
   gap: 2rem;
-  border: 3px solid black;
+  border: 3px solid var(--black);
   border-radius: 20px;
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dark-mode .navbar_menu {
+  border-color: var(--dark-border);
 }
 
 .navbar_item {
@@ -54,8 +82,13 @@ a {
 }
 
 .navbar_item:hover {
-  background-color: #202124;
-  color: white;
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+.dark-mode .navbar_item:hover {
+  background-color: var(--dark-hover);
+  color: var(--white);
 }
 
 .navbar_item a {
@@ -65,14 +98,23 @@ a {
 
 .account {
   padding: 0.5rem 1rem;
-  border: 3px solid black;
+  border: 3px solid var(--black);
   border-radius: 20px;
   transition: background-color 0.3s ease;
 }
 
+.dark-mode .account {
+  border-color: var(--dark-border);
+}
+
 .account:hover {
-  background-color: #202124;
-  color: white;
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+.dark-mode .account:hover {
+  background-color: var(--dark-hover);
+  color: var(--white);
 }
 
 .navbar_menu.hidden {
