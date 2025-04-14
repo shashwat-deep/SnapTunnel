@@ -1,18 +1,20 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.app-container {
+.content-container {
+  flex: 1;
+  margin-top: 80px; /* Adjust based on NavBar height (padding + content) */
   position: relative;
   z-index: 0;
-  min-height: 100vh;
 }
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }

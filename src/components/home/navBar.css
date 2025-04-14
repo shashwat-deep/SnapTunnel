@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&family=Material+Icons&display=block');
 
-*{
+* {
   margin: 0;
   padding: 0;
   color: black;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -18,51 +18,93 @@ a{
   left: 0;
   width: 100%;
   padding-inline: 5rem;
-  padding-block: 2rem ;
+  padding-block: 2rem;
   align-items: center;
   justify-content: space-between;
   background: transparent;
   z-index: 10;
+  transition: background-color 0.3s ease;
 }
 
-/* .navbar_menu{
+.navbar_logo .navbar_link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #202124;
+}
+
+.navbar_menu {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  margin-inline: 21rem;
+  padding-inline: 0;
+  padding-block: .1rem;
   flex-grow: 1;
-} */
-
-.navbar_link{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+  border: 3px solid black;
+  border-radius: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.navbar_item {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
 
+.navbar_item:hover {
+  background-color: #202124;
+  color: white;
+}
 
+.navbar_item a {
+  color: inherit;
+  font-size: 1rem;
+}
 
+.account {
+  padding: 0.5rem 1rem;
+  border: 3px solid black;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
 
+.account:hover {
+  background-color: #202124;
+  color: white;
+}
 
-.navbar_mobile{
+.navbar_menu.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* Ensure logo and account remain visible */
+.navbar_logo, .account {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.navbar_mobile {
   display: none;
 }
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-@media (max-width: 768px) {
-
-  .material-symbols-outlined {
-    font-variation-settings:
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
-    'opsz' 24
-  }
+    'opsz' 24;
+}
 
+@media (max-width: 768px) {
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
 }

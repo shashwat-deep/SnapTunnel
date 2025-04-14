@@ -19,6 +19,10 @@
   border-radius: 50px;
 }
 
+.nav_items:hover{
+  background-color: #202124;
+}
+
 .main-window{
   min-height: 100vh;
   display: flex;
@@ -259,8 +263,6 @@ input:focus {
   }
 
 }
-
-/* Existing CSS remains unchanged... */
 
 /* Starfield Animation */
 .starfield {
