@@ -66,41 +66,73 @@ const Main: React.FC = () => {
 
   return (
     <div className='main-window'>
-      <div className="main-container">
-        <h1>Seamless file sharing<br />for everyone</h1>
-        <p>Join, share, and connect with SnapTunnel.</p>
-        <div className="button-group">
-          <button 
-            className="new-meeting-btn"
-            onClick={handleCreateRoom}
-            disabled={isCreating}
-          >
-            <span className="material-symbols-outlined">add</span>
-            {isCreating ? 'Creating...' : 'Create Room'}
-          </button>
-          <div className="input-join">
-            <input
-              type="text"
-              value={code}
-              onChange={handleInputChange}
-              placeholder="Enter code"
-            />
-            <button
-              className={`join-btn ${code ? 'active' : ''}`}
-              onClick={handleJoinClick}
-              disabled={!code}
+      <div className='intro_page'>
+        <div className="main-container">
+          <h1>Seamless file sharing<br />for everyone</h1>
+          <p>Join, share, and connect with SnapTunnel.</p>
+          <div className="button-group">
+            <button 
+              className="new-meeting-btn"
+              onClick={handleCreateRoom}
+              disabled={isCreating}
             >
-              Join
+              <span className="material-symbols-outlined">add</span>
+              {isCreating ? 'Creating...' : 'Create Room'}
             </button>
+            <div className="input-join">
+              <input
+                type="text"
+                value={code}
+                onChange={handleInputChange}
+                placeholder="Enter code"
+              />
+              <button
+                className={`join-btn ${code ? 'active' : ''}`}
+                onClick={handleJoinClick}
+                disabled={!code}
+              >
+                Join
+              </button>
+            </div>
           </div>
         </div>
+        <div className='image_container'>
+          <img 
+          src='/mobile_data_transfer.png'
+          width={500}
+          alt='intro_image'
+          />
+        </div>
       </div>
-      <div className='image_container'>
-        <img 
-        src='/mobile_data_transfer.png'
-        width={500}
-        alt='intro_image'
-        />
+      <div className='about_section' id='#about'>
+        <h1 className='about_heading'>ABOUT</h1>
+        <div className='about_card block'>
+          <div className='detail'>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam reiciendis exercitationem saepe vitae modi magni architecto voluptatem maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et quod vitae!
+          </div>
+          <img 
+          className='about_1_img' 
+          src='/mobile_data_transfer.png'
+          />
+        </div>
+        <div className='about_card block'>
+          <img 
+          className='about_1_img' 
+          src='/mobile_data_transfer.png'
+          />
+          <div className='detail'>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam reiciendis exercitationem saepe vitae modi magni architecto voluptatem maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et quod vitae!
+          </div>
+        </div>
+        <div className='about_card block'>
+          <div className='detail'>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam reiciendis exercitationem saepe vitae modi magni architecto voluptatem maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et quod vitae!
+          </div>
+          <img 
+          className='about_1_img' 
+          src='/mobile_data_transfer.png'
+          />
+        </div>
       </div>
       <div className='footer'></div>
       <div className="starfield"></div>
