@@ -95,7 +95,13 @@ const Main: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='image_container'></div>
+      <div className='image_container'>
+        <img 
+        src='/mobile_data_transfer.png'
+        width={500}
+        alt='intro_image'
+        />
+      </div>
       <div className='footer'></div>
       <div className="starfield"></div>
     </div>
