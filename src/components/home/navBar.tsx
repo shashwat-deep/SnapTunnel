@@ -4,16 +4,20 @@ import './navBar.css';
 
 const Navbar: React.FC = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsMenuVisible(false);
-      } else {
-        setIsMenuVisible(true);
+      // Only apply scroll hiding on desktop (above 768px)
+      if (window.innerWidth > 768) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setIsMenuVisible(false);
+        } else {
+          setIsMenuVisible(true);
+        }
       }
       lastScrollY = currentScrollY;
     };
@@ -31,30 +35,46 @@ const Navbar: React.FC = () => {
     } else {
       console.warn(`Section with id "${sectionId}" not found`);
     }
+    // Close sidebar after clicking a menu item on mobile
+    setIsSidebarOpen(false);
+  };
+
+  // Toggle sidebar visibility
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
-    <nav className="navbar_pc">
-      <div className="navbar_logo">
-        <Link to="/" className="navbar_link">
-          <span className="logo_text">SnapTunnel</span>
-        </Link>
+    <nav className="navbar_container">
+      <div className="navbar">
+        <div className="navbar_logo">
+          <Link to="/" className="navbar_link">
+            <span className="logo_text">SnapTunnel</span>
+          </Link>
+        </div>
+        <ul className={`navbar_menu ${isMenuVisible ? '' : 'hidden'} ${isSidebarOpen ? 'sidebar_open' : ''}`}>
+          <li className="navbar_item">
+            <button onClick={() => scrollToSection('about')}>About</button>
+          </li>
+          <li className="navbar_item">
+            <button onClick={() => scrollToSection('pricing')}>Pricing</button>
+          </li>
+          <li className="navbar_item">
+            <button onClick={() => scrollToSection('support')}>Support</button>
+          </li>
+          <li className="navbar_item">
+            <button onClick={() => scrollToSection('settings')}>Settings</button>
+          </li>
+        </ul>
+        <div className="account">Sign Up</div>
       </div>
-      <ul className={`navbar_menu ${isMenuVisible ? '' : 'hidden'}`}>
-        <li className="navbar_item">
-          <button onClick={() => scrollToSection('about')}>About</button>
-        </li>
-        <li className="navbar_item">
-          <button onClick={() => scrollToSection('pricing')}>Pricing</button>
-        </li>
-        <li className="navbar_item">
-          <button onClick={() => scrollToSection('support')}>Support</button>
-        </li>
-        <li className="navbar_item">
-          <button onClick={() => scrollToSection('settings')}>Settings</button>
-        </li>
-      </ul>
-      <div className="account">Sign Up</div>
+      <span
+        className="material-symbols-outlined sideBar_icon"
+        onClick={toggleSidebar}
+        aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
+      >
+        {isSidebarOpen ? 'close' : 'notes'}
+      </span>
     </nav>
   );
 };

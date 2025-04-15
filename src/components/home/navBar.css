@@ -14,6 +14,7 @@ html {
   --dark-border: #4a4a4a;
   --dark-hover: #3a3a3a;
   --dark-text: #e0e0e0;
+  --light-text: #151515;
 }
 
 * {
@@ -30,7 +31,7 @@ a {
   text-decoration: none;
 }
 
-.navbar_pc {
+.navbar_container {
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -46,7 +47,17 @@ a {
   transition: background-color 0.3s ease;
 }
 
-.dark-mode .navbar_pc {
+.navbar {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.dark-mode .navbar_container {
   background: var(--dark-bg);
 }
 
@@ -64,10 +75,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-inline: 21rem;
-  padding-inline: 0;
+  padding-inline: 0.1rem;
   padding-block: .1rem;
-  flex-grow: 1;
   list-style: none;
   gap: 2rem;
   border: 3px solid var(--black);
@@ -146,10 +155,91 @@ a {
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  color: #000;
+}
+
+.dark-mode .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  color: #fff;
+}
+
+.sideBar_icon {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .navbar_container {
+    padding-inline: 3rem;
+    padding-block: 1.5rem;
+    gap: 2rem;
+  }
+
+  .navbar_menu {
+    margin-inline: 1rem;
+  }
+
+  .sideBar_icon {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  .navbar_container {
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    gap: 2rem;
+  }
+
+  .sideBar_icon {
+    display: flex;
+    position: relative;
+    z-index: 13;
+  }
+
+  .navbar_menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: -100%; /* Hidden off-screen by default */
+    width: 350px;
+    height: 100vh;
+    justify-content: flex-start;
+    background: var(--dark-border);
+    border: none;
+    border-radius: 50px 0px 0px 50px;
+    padding: 5rem 1rem;
+    margin: 0;
+    gap: 1rem;
+    transition: right 0.3s ease;
+    z-index: 12;
+  }
+
+  .dark-mode .navbar_menu {
+    background: var(--dark-bg);
+  }
+
+  .navbar_menu.sidebar_open {
+    right: 0;
+  }
+
+  .navbar_item {
+    color: var(--light-text);
+    border: 1px solid var(--dark-hover);
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+
+  .navbar_item button {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .navbar_menu.hidden {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 }
