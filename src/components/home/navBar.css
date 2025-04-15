@@ -89,6 +89,9 @@ a {
 }
 
 .navbar_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   transition: background-color 0.3s ease;
@@ -111,9 +114,52 @@ a {
   border: none;
   cursor: pointer;
   padding: 0;
-  width: 100%;
+  width: auto;
   height: 100%;
   display: block;
+}
+
+.support_icon {
+  line-height: 50%;
+  transform: rotate(0deg);
+}
+
+.navbar_item:hover .support_icon {
+  animation: drop_down .6s forwards;
+  color: var(--white);
+}
+
+.support_icon:hover {
+  color: var(--white);
+}
+
+.navbar_item:not(:hover) .support_icon{
+  animation: drop_down_reverse .5s forwards;
+}
+
+@keyframes drop_down {
+  from{
+    rotate: 0deg;
+  }
+  to{
+    rotate: 180deg;
+  }
+}
+
+@keyframes drop_down_reverse{
+  from{
+    rotate: 180deg;
+  }
+  to{
+    rotate: 0deg;
+  }
+}
+
+.nav_menu_1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
 .account {
@@ -168,6 +214,41 @@ a {
   cursor: pointer;
   font-size: 2rem;
 }
+
+.nav_item_mobile{
+  display: none;
+}
+
+.nav_settings{
+  font-size: 1.8rem;
+}
+
+.nav_settings:hover{
+  animation: setting_spin .5s forwards;
+}
+
+.nav_settings:not(:hover){
+  animation: setting_spin_reverse .5s forwards;
+}
+
+@keyframes setting_spin{
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 60deg;
+  }
+}
+
+@keyframes setting_spin_reverse{
+  from {
+    rotate: 60deg;
+  }
+  to {
+    rotate: 0deg;
+  }
+}
+
 
 @media (max-width: 1024px) {
   .navbar_container {
@@ -225,6 +306,11 @@ a {
     right: 0;
   }
 
+  .navbar_link_item{
+    padding: 0;
+    margin: 0;
+  }
+
   .navbar_item {
     color: var(--light-text);
     border: 1px solid var(--dark-hover);
@@ -241,5 +327,19 @@ a {
     opacity: 1;
     transform: none;
     pointer-events: auto;
+  }
+
+  .nav_item_mobile{
+    display:flex;
+  }
+
+  .nav_settings{
+    display: none;
+  }
+
+  .pricing_details{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }

@@ -146,15 +146,10 @@ const Main: React.FC = () => {
       </div>
       <div className="pricing_section" id="pricing">
         <h1 className="pricing_heading">PRICING</h1>
-        <p>Placeholder for pricing content.</p>
-      </div>
-      <div className="support_section" id="support">
-        <h1 className="support_heading">SUPPORT</h1>
-        <p>Placeholder for support content.</p>
-      </div>
-      <div className="settings_section" id="settings">
-        <h1 className="settings_heading">SETTINGS</h1>
-        <p>Placeholder for settings content.</p>
+        <div className='pricing_details'>
+          <div className='price_card block'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, tempore. Autem laudantium doloremque excepturi maiores, accusantium aliquid earum adipisci cum similique nobis ab nesciunt provident quis! Natus magni neque maiores fugit architecto. Harum et quibusdam eius odio, itaque soluta, doloribus autem eaque veniam impedit ea maiores quae quo. Commodi, nulla.</div>
+          <div className='price_card block'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, tempore. Autem laudantium doloremque excepturi maiores, accusantium aliquid earum adipisci cum similique nobis ab nesciunt provident quis! Natus magni neque maiores fugit architecto. Harum et quibusdam eius odio, itaque soluta, doloribus autem eaque veniam impedit ea maiores quae quo. Commodi, nulla.</div>
+        </div>
       </div>
       <div className="footer"></div>
       <div className="starfield"></div>

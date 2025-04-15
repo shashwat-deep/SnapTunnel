@@ -60,13 +60,20 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('pricing')}>Pricing</button>
           </li>
           <li className="navbar_item">
-            <button onClick={() => scrollToSection('support')}>Support</button>
+              <button onClick={() => scrollToSection('support')}>Support</button>
+              <span className="material-symbols-outlined support_icon">stat_minus_1</span>
           </li>
-          <li className="navbar_item">
-            <button onClick={() => scrollToSection('settings')}>Settings</button>
-          </li>
+          <Link to="/contact" className="navbar_item">
+            <button>Contact</button>
+          </Link>
+          <Link to="/settings" className="navbar_item nav_item_mobile">
+            <button>Settings</button>
+          </Link>
         </ul>
-        <div className="account">Sign Up</div>
+        <div className='nav_menu_1'>
+          <div className="account">Sign Up</div>
+          <span className="material-symbols-outlined nav_settings">settings</span>
+        </div>
       </div>
       <span
         className="material-symbols-outlined sideBar_icon"
