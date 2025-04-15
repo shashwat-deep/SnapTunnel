@@ -96,7 +96,7 @@ const Main: React.FC = () => {
           </div>
         </div>
         <div className="image_container">
-          <img src="/mobile_data_transfer.png" width={500} alt="intro_image" />
+          <img src="/mobile_data_transfer.png" width={400} alt="intro_image" />
         </div>
       </div>
       <div className="about_section" id="about">
@@ -112,13 +112,15 @@ const Main: React.FC = () => {
             className="about_1_img"
             src="/mobile_data_transfer.png"
             alt="about image 1"
+            width={500}
           />
         </div>
-        <div className="about_card block">
+        <div className="about_card about_card_reverse block">
           <img
             className="about_1_img"
             src="/mobile_data_transfer.png"
             alt="about image 2"
+            width={500}
           />
           <div className="detail">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam
@@ -138,6 +140,7 @@ const Main: React.FC = () => {
             className="about_1_img"
             src="/mobile_data_transfer.png"
             alt="about image 3"
+            width={500}
           />
         </div>
       </div>
