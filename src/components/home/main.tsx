@@ -29,12 +29,12 @@ const Main: React.FC = () => {
 
   const handleJoinClick = async () => {
     if (!code) return;
-    
+
     try {
       const response = await fetch(`http://localhost:3000/api/rooms/${code}/join`, {
         method: 'POST',
       });
-      
+
       if (response.ok) {
         navigate(`/room/${code}`);
       } else {
@@ -46,7 +46,6 @@ const Main: React.FC = () => {
     }
   };
 
-  // Generate stars dynamically
   useEffect(() => {
     const starfield = document.querySelector('.starfield');
     if (starfield) {
@@ -65,13 +64,13 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <div className='main-window dark-mode'>
-      <div className='intro_page'>
+    <div className="main-window">
+      <div className="intro_page">
         <div className="main-container">
           <h1>Seamless file sharing<br />for everyone</h1>
           <p>Join, share, and connect with SnapTunnel.</p>
           <div className="button-group">
-            <button 
+            <button
               className="new-meeting-btn"
               onClick={handleCreateRoom}
               disabled={isCreating}
@@ -96,45 +95,65 @@ const Main: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className='image_container'>
-          <img 
-          src='/mobile_data_transfer.png'
-          width={500}
-          alt='intro_image'
+        <div className="image_container">
+          <img src="/mobile_data_transfer.png" width={500} alt="intro_image" />
+        </div>
+      </div>
+      <div className="about_section" id="about">
+        <h1 className="about_heading">ABOUT</h1>
+        <div className="about_card block">
+          <div className="detail">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam
+            reiciendis exercitationem saepe vitae modi magni architecto voluptatem
+            maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et
+            quod vitae!
+          </div>
+          <img
+            className="about_1_img"
+            src="/mobile_data_transfer.png"
+            alt="about image 1"
+          />
+        </div>
+        <div className="about_card block">
+          <img
+            className="about_1_img"
+            src="/mobile_data_transfer.png"
+            alt="about image 2"
+          />
+          <div className="detail">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam
+            reiciendis exercitationem saepe vitae modi magni architecto voluptatem
+            maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et
+            quod vitae!
+          </div>
+        </div>
+        <div className="about_card block">
+          <div className="detail">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam
+            reiciendis exercitationem saepe vitae modi magni architecto voluptatem
+            maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et
+            quod vitae!
+          </div>
+          <img
+            className="about_1_img"
+            src="/mobile_data_transfer.png"
+            alt="about image 3"
           />
         </div>
       </div>
-      <div className='about_section' id='#about'>
-        <h1 className='about_heading'>ABOUT</h1>
-        <div className='about_card block'>
-          <div className='detail'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam reiciendis exercitationem saepe vitae modi magni architecto voluptatem maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et quod vitae!
-          </div>
-          <img 
-          className='about_1_img' 
-          src='/mobile_data_transfer.png'
-          />
-        </div>
-        <div className='about_card block'>
-          <img 
-          className='about_1_img' 
-          src='/mobile_data_transfer.png'
-          />
-          <div className='detail'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam reiciendis exercitationem saepe vitae modi magni architecto voluptatem maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et quod vitae!
-          </div>
-        </div>
-        <div className='about_card block'>
-          <div className='detail'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quam reiciendis exercitationem saepe vitae modi magni architecto voluptatem maiores deserunt, dolores tenetur totam eius nostrum. Pariatur aliquam et quod vitae!
-          </div>
-          <img 
-          className='about_1_img' 
-          src='/mobile_data_transfer.png'
-          />
-        </div>
+      <div className="pricing_section" id="pricing">
+        <h1 className="pricing_heading">PRICING</h1>
+        <p>Placeholder for pricing content.</p>
       </div>
-      <div className='footer'></div>
+      <div className="support_section" id="support">
+        <h1 className="support_heading">SUPPORT</h1>
+        <p>Placeholder for support content.</p>
+      </div>
+      <div className="settings_section" id="settings">
+        <h1 className="settings_heading">SETTINGS</h1>
+        <p>Placeholder for settings content.</p>
+      </div>
+      <div className="footer"></div>
       <div className="starfield"></div>
     </div>
   );
