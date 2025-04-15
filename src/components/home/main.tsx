@@ -65,7 +65,7 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <div className='main-window'>
+    <div className='main-window dark-mode'>
       <div className='intro_page'>
         <div className="main-container">
           <h1>Seamless file sharing<br />for everyone</h1>

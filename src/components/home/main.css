@@ -109,25 +109,25 @@ p {
 
 input {
   padding: 10px;
-  font-size: 1em;
-  border: 1px solid var(--light-gray);
+  font-size: 1rem;
   border-radius: 20px;
-  outline: none;
+  outline: 2px solid var(--light-gray);
+  background: transparent;
   width: 200px;
 }
 
 .dark-mode input {
-  border-color: var(--dark-border);
+  outline: 2px solid var(--dark-border);
   background: var(--dark-hover);
-  color: var(--dark-text);
+  color: var(--dark-text);  
 }
 
 input:focus {
-  border-color: var(--primary-blue);
+  outline: 2px solid var(--primary-blue);
 }
 
 .dark-mode input:focus {
-  border-color: var(--primary-blue); /* Keep accent consistent */
+  outline: 2px solid var(--primary-blue);
 }
 
 /* Define custom property for angle */
@@ -155,7 +155,7 @@ input:focus {
 }
 
 .dark-mode .new-meeting-btn {
-  background: var(--dark-hover);
+  background: var(--primary-blue);
   color: var(--dark-text);
 }
 
@@ -203,7 +203,7 @@ input:focus {
 }
 
 .dark-mode .new-meeting-btn::after {
-  background: var(--dark-hover);
+  background: var(--primary-blue);
 }
 
 .input-join {
@@ -213,7 +213,7 @@ input:focus {
 }
 
 .input-join input {
-  border: 2px solid var(--primary-blue);
+  border: 1px solid var(--light-gray);
 }
 
 .dark-mode .input-join input {
@@ -298,6 +298,10 @@ input:focus {
 
 .dark-mode .join-btn::after {
   background: var(--dark-hover);
+}
+
+.join-btn.active::after{
+  background: var(--primary-blue);
 }
 
 .dark-mode .join-btn.active::after {

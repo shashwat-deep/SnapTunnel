@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="navbar_pc">
+    <nav className="navbar_pc dark-mode">
       <div className="navbar_logo">
         <Link to="/" className="navbar_link">
           <span className="logo_text">SnapTunnel</span>

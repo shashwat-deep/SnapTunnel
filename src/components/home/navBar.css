@@ -87,7 +87,7 @@ a {
 }
 
 .dark-mode .navbar_item:hover {
-  background-color: var(--dark-hover);
+  background-color: var(--dark-border);
   color: var(--white);
 }
 
@@ -113,7 +113,7 @@ a {
 }
 
 .dark-mode .account:hover {
-  background-color: var(--dark-hover);
+  background-color: var(--dark-border);
   color: var(--white);
 }
 
